@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import candidateRoutes from './routes/candidates';
@@ -12,7 +13,10 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 
-// Routes
+// Static CRM map
+app.use(express.static(path.join(__dirname, '..', 'public')));
+
+// API routes
 app.use('/api/auth', authRoutes);
 app.use('/api/candidates', candidateRoutes);
 
