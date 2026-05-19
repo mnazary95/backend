@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: mustfind-api
+    rootDir: .
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    plan: free
+  
+  - type: web
+    name: jpro-crm
+    rootDir: jpro-server
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
